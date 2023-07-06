@@ -22,3 +22,29 @@ def kadensAlgo(arr):
     
 a = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 print(kadensAlgo(a))
+
+
+#------------------------------------------------------/
+# print the one of subarray with max sum
+
+def printmaxSumSubarray(arr):
+    mx = float('-inf')
+    sm = 0
+    start = 0
+    ansStart, ansEnd = 0, 0
+    for i in range(len(arr)):
+        if sm == 0:
+            start = i
+            
+        sm += arr[i]
+        
+        if sm > mx:
+            mx = sm
+            ansStart = start
+            ansEnd = i
+        
+        if sm < 0:
+            sm = 0
+    ans = arr[ansStart:ansEnd+1]
+    return ans
+print(printmaxSumSubarray(a))
